@@ -1,0 +1,52 @@
+docker run -p 8501:8501 app_vistoria:latest
+
+Passo 5: Crie um serviço App Runner usando o console AWS
+Acesse o console AWS e navegue até o serviço App Runner
+
+Clique em "Create service"
+
+Selecione "Container registry" como fonte e "Amazon ECR" como provedor
+
+Selecione sua conta AWS e o repositório "vistocarroai" que você criou
+
+Selecione a tag "latest"
+
+Clique em "Next"
+
+Dê um nome ao seu serviço, como "vistocarroai-service"
+
+Configure as opções de CPU e memória (recomendo pelo menos 1 vCPU e 2 GB de memória)
+
+Configure a porta como 8501
+
+Clique em "Next"
+
+Revise as configurações e clique em "Create & deploy"
+
+Passo 6: Configure variáveis de ambiente (se necessário)
+Se seu aplicativo precisar de variáveis de ambiente (como chaves de API), você pode configurá-las:
+
+No console do App Runner, selecione seu serviço
+
+Vá para a guia "Configuration"
+
+Clique em "Edit" na seção "Environment variables"
+
+Adicione suas variáveis de ambiente (como GOOGLE_API_KEY)
+
+Clique em "Save changes"
+
+Passo 7: Configure um domínio personalizado (opcional)
+No console do App Runner, selecione seu serviço
+
+Vá para a guia "Custom domains"
+
+Clique em "Add domain"
+
+Siga as instruções para verificar a propriedade do domínio e configurá-lo
+
+Passo 8: Acesse seu aplicativo
+Após a implantação (que pode levar alguns minutos), você poderá acessar seu aplicativo através da URL fornecida pelo App Runner, algo como:
+https://xxxxxxxxxx.us-east-1.awsapprunner.com
+
+Agora seu aplicativo VistoCarroAI está implantado no AWS App Runner e pode ser acessado de qualquer lugar!

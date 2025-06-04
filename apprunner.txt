@@ -1,0 +1,54 @@
+aws apprunner create-service \
+  --service-name vistocarroai-new \
+  --source-configuration '{
+    "ImageRepository": {
+      "ImageIdentifier": "440744259713.dkr.ecr.us-east-1.amazonaws.com/vistocarroai:latest",
+      "ImageConfiguration": {
+        "Port": "8501",
+        "RuntimeEnvironmentVariables": {
+          "GOOGLE_API_KEY": "AIzaSyDQJadHRonvqZmlCKJIN77lNWQtU7tGoPs",
+          "S3_BUCKET": "vistoriador-poc-25fg"
+        }
+      },
+      "ImageRepositoryType": "ECR"
+    },
+    "AutoDeploymentsEnabled": true,
+    "AuthenticationConfiguration": {
+      "AccessRoleArn": "arn:aws:iam::440744259713:role/service-role/AppRunnerECRAccessRole"
+    }
+  }' \
+  --health-check-configuration '{
+    "Protocol": "HTTP",
+    "Path": "/_stcore/health",
+    "Interval": 10,
+    "Timeout": 5,
+    "HealthyThreshold": 1,
+    "UnhealthyThreshold": 5
+  }' \
+  --instance-configuration '{
+    "Cpu": "1 vCPU",
+    "Memory": "2 GB"
+  }' \
+  --profile bardhock
+
+
+
+============
+
+
+# Construa a imagem
+docker build -t vistocarroai .
+
+# Faça login no ECR
+aws ecr get-login-password --region us-east-1 --profile bardhock | docker login --username AWS --password-stdin 440744259713.dkr.ecr.us-east-1.amazonaws.com
+
+# Marque a imagem
+docker tag vistocarroai:latest 440744259713.dkr.ecr.us-east-1.amazonaws.com/vistocarroai:latest
+
+# Envie a imagem
+docker push 440744259713.dkr.ecr.us-east-1.amazonaws.com/vistocarroai:latest
+
+
+============
+
+

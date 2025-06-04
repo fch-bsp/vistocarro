@@ -1,0 +1,19 @@
+DEFAULT_ANALYSIS = """# RELATÓRIO DE VISTORIA VEICULAR
+
+## Resumo dos Danos
+O veículo Volkswagen Gol, cor prata, apresenta danos concentrados principalmente na região frontal, afetando o para-choque dianteiro e o capô. Foram identificados amassados de intensidade moderada e arranhões na pintura.
+
+## Classificação da Severidade
+A batida é classificada como de severidade MODERADA, com danos visíveis que requerem substituição de peças, porém sem comprometimento estrutural grave.
+
+## Peças Afetadas
+- Para-choque dianteiro (substituição necessária)
+- Capô (reparação possível)
+- Grade frontal (substituição necessária)
+- Faróis (verificação recomendada)
+
+## Impacto Estrutural
+Não foram identificados danos ao chassi ou à estrutura principal do veículo. Os danos estão limitados a componentes externos e de absorção de impacto, cumprindo sua função de proteção.
+
+## Conclusão Técnica
+O veículo sofreu uma colisão frontal de impacto moderado, resultando em danos cosméticos e funcionais que requerem reparos, mas não comprometem a segurança estrutural. Recomenda-se a substituição do para-choque e verificação detalhada do sistema de refrigeração para garantir que não houve danos secundários."""
